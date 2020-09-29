@@ -181,6 +181,7 @@ def test_setup_provisioner_fail(mhost, run_script):
 def test_setup_provisioner_singlenode(
     mhost, mlocalhost, ssh_config, remote, run_script
 ):
+    import pdb; pdb.set_trace()
     remote = '--remote {}'.format(mhost.hostname) if remote else ''
     ssh_config = '--ssh-config {}'.format(ssh_config) if remote else ''
     with_sudo = ''  # TODO
@@ -255,6 +256,7 @@ def test_setup_provisioner_cluster(
     remote, repo_src, inject_ssh_config, run_script
 ):
     remote = '--remote {}'.format(mhostsrvnode1.hostname) if remote else ''
+    import pdb; pdb.set_trace()
     ssh_config = '--ssh-config {}'.format(ssh_config)
     with_sudo = ''  # TODO
 

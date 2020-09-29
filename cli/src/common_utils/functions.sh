@@ -725,7 +725,7 @@ function install_repos {
 
     local _repo_base_dir="/etc/yum.repos.d"
     local _repo_base_dir_backup="/etc/yum.repos.d.bak"
-    local _project_repos="$repo_root_dir/files/etc/yum.repos.d"
+    local _project_repos="$repo_root_dir/files/etc/yum.repos.d/saltstack.repo"
 
     local _cortx_deps_repo
     local _system_repo
@@ -754,7 +754,7 @@ function install_repos {
         echo -e "\\nWARNING: skip backup creation since backup already exists" | tee -a "$log_file" >&2
     fi
 
-    rm -rf "$_repo_base_dir"
+    yum install -y epel-release
 
     if [[ -z "$_hostspec" ]]; then
         cp -R "$_project_repos" "$_repo_base_dir"

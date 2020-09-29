@@ -1057,7 +1057,7 @@ class SetupProvisioner(SetupCmdBase, CommandParserFillerMixin):
                     }
 
             # FIXME rhel and centos repos
-            if run_args.dist_type == config.DistrType.BUNDLE:
+            if run_args.dist_type == config.DistrType.BUNDLEi and False:
                 # assume that target_build here is
                 # a base dir for bundle distribution
                 repos.update({
@@ -1116,6 +1116,7 @@ class SetupProvisioner(SetupCmdBase, CommandParserFillerMixin):
         if run_args.source in ('iso', 'rpm'):
             # copy ISOs onto remotes and mount
             ssh_client.state_apply('repos')
+            ssh_client.state_apply('cortx_repos')  # FIXME EOS-12076
         else:
             ssh_client.state_apply('cortx_repos')
 
@@ -1339,7 +1340,7 @@ class SetupProvisioner(SetupCmdBase, CommandParserFillerMixin):
 
         logger.info("Configuring provisioner logging")
         for state in [
-            'components.system.prepare',
+            # 'components.system.prepare',
             'components.provisioner.config'
         ]:
             ssh_client.cmd_run(

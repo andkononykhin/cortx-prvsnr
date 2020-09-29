@@ -72,6 +72,7 @@ class SetupJBOD(SetupCmdBase, CommandParserFillerMixin):
             )
 
         logger.info("Deploy")
+        import pdb; pdb.set_trace()
         deploy_jbod.DeployJBOD(setup_ctx=setup_ctx).run(
             **deploy_jbod_args
         )

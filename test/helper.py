@@ -158,9 +158,12 @@ class Container(Remote):
                 tty=True,
                 # network=network_name,
                 volumes={
-                    '/sys/fs/cgroup': {'bind': '/sys/fs/cgroup', 'mode': 'ro'}
+                    '/sys/fs/cgroup': {'bind': '/sys/fs/cgroup', 'mode': 'ro'},
+                    '/dev': {'bind': '/dev', 'mode': 'ro'},  # FIXME EOS-12076
                 },
                 # security_opt=['seccomp=unconfined'],
+                # FIXME EOS-12076
+                privileged=True,
                 tmpfs={'/run': '', '/run/lock': ''},
                 ports={'22/tcp': None},
                 **self.specific

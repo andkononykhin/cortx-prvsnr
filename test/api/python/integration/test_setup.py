@@ -26,7 +26,7 @@ def env_provider():
     return 'docker'
 
 
-@pytest.mark.skip
+#@pytest.mark.skip
 @pytest.mark.isolated
 @pytest.mark.env_level('utils')
 @pytest.mark.hosts(['srvnode1', 'srvnode2', 'srvnode3'])
@@ -35,4 +35,5 @@ def test_setup_cluster(
 ):
     mhostsrvnode1.check_output('echo root | passwd --stdin root')
     mhostsrvnode2.check_output('echo root | passwd --stdin root')
+    import pdb; pdb.set_trace()
     pass

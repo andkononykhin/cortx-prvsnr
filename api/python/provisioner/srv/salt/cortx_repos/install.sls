@@ -17,7 +17,7 @@
 
 # TODO TEST
 
-{% if "RedHat" in grains['os'] %}
+{% if "RedHat" in grains['os'] or True %}
 
 setup_yum_salt_repo:
   file.managed:
@@ -55,9 +55,9 @@ clean_yum_cache:
 
 {% endif %}
 
-#epel_release_installed:
-#  pkg.installed:
-#    - name: epel-release
+epel_release_installed:
+  pkg.installed:
+    - name: epel-release
 
 # TODO IMPROVE look for specific salt module instead of cmd.run
 # TODO IMPROVE a temporary fix since later version (2019.2.1) is buggy

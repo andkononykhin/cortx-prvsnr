@@ -113,6 +113,7 @@ def run_test(request, prepare_test_env):
                     .format(curr_user, script)
                 )
 
+        import pdb; pdb.set_trace()
         return mhost.check_output(script)
 
     return f

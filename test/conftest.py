@@ -884,8 +884,9 @@ def build_vagrant_box_fixture(os_name, env_level):  # noqa: C901 FIXME
             res = {'base_env': base_env}
 
             if env_level == 'base':
-                p_machine = request.getfixturevalue('vbox_seed_machine')
-                res['seed_vm_name'] = p_machine.name
+                pass
+                #p_machine = request.getfixturevalue('vbox_seed_machine')
+                #res['seed_vm_name'] = p_machine.name
             else:
                 env_spec = ENV_LEVELS_HIERARCHY[env_level]
                 if type(env_spec) is dict:
@@ -945,7 +946,7 @@ def build_vagrant_box_fixture(os_name, env_level):  # noqa: C901 FIXME
         #  - parent env is changed
         #  - input user variables set is changed
         #  - provisioning scripts and other related sources are changed
-        if _check_box_added(box_name) and False:
+        if _check_box_added(box_name):
             logger.info(
                 "Vagrant box for env '{}:{}' already added"
                 .format(base_env, env_level)
